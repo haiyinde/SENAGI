@@ -1,14 +1,6 @@
 import axios from 'axios';
 
 const api = axios.create({
-<<<<<<< HEAD
-  baseURL: 'http://localhost:8080/api/',
-  // headers: {
-  //   'Content-Type': 'application/json',
-  // },
-});
-
-=======
   baseURL: 'https://senagi.site/api/',
   headers: {
     'Content-Type': 'application/json',
@@ -56,7 +48,6 @@ const fileApi = axios.create({
 //   },
 // });
 
->>>>>>> dev
 api.interceptors.request.use(function (config) {
   const user = localStorage.getItem('user');
   if (!user) {
@@ -97,8 +88,4 @@ api.interceptors.response.use(
   },
 );
 
-<<<<<<< HEAD
-export default api;
-=======
 export { api, tokenApi, fileApi, withdrawApi };
->>>>>>> dev

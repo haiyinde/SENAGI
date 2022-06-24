@@ -4,10 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ssafy.b105.dto.blockchain.ContractRequestDto;
 import com.ssafy.b105.dto.blockchain.NewWalletDto;
 import com.ssafy.b105.entity.blockchain.Transaction;
-<<<<<<< HEAD
-=======
 import com.ssafy.b105.repository.blockchain.TransactionRepository;
->>>>>>> dev
 import com.ssafy.b105.entity.blockchain.wrapper.campaign.Campaign;
 import com.ssafy.b105.entity.blockchain.wrapper.member.Member;
 import com.ssafy.b105.entity.blockchain.wrapper.token.Token;
@@ -77,10 +74,7 @@ public class BlockchainConnector {
   private Token tokenMgr;
   private Credentials credentials;
   private ContractGasProvider gasProvider;
-<<<<<<< HEAD
-=======
   private TransactionManager transactionManager;
->>>>>>> dev
 
   private BigInteger decimals;
 
@@ -99,11 +93,7 @@ public class BlockchainConnector {
     try {
       File wallet = ResourceUtils.getFile(keyPath + adminWallet);
       credentials = WalletUtils.loadCredentials(adminPass, wallet);
-<<<<<<< HEAD
-      TransactionManager transactionManager = new RawTransactionManager(web3j, credentials,
-=======
       transactionManager = new RawTransactionManager(web3j, credentials,
->>>>>>> dev
           chainId);
       this.memberMgr = Member.load(memberAddr, web3j, transactionManager, gasProvider);
       this.tokenMgr = Token.load(tokenAddr, web3j, transactionManager, gasProvider);
@@ -121,17 +111,6 @@ public class BlockchainConnector {
 
     return Campaign.deploy(
         web3j,
-<<<<<<< HEAD
-        credentials,
-        gasProvider,
-        BalanceConverter.longToBigInteger(dto.getTargetAmount(),decimals),
-        BalanceConverter.longToBigInteger(dto.getDeadLine(),decimals),
-        memberAddr,
-        tokenAddr).send();
-  }
-  public Campaign loadContract(String address) {
-    return Campaign.load(address,web3j,credentials,gasProvider);
-=======
         transactionManager,
         gasProvider,
         BalanceConverter.longToBigInteger(dto.getTargetAmount(), decimals),
@@ -142,7 +121,6 @@ public class BlockchainConnector {
 
   public Campaign loadContract(String address) {
     return Campaign.load(address, web3j, transactionManager, gasProvider);
->>>>>>> dev
   }
 
   public Member getMemberMgr() {
@@ -160,28 +138,15 @@ public class BlockchainConnector {
   public BigInteger getDecimals() {
     BigInteger retval = new BigInteger("18");
     try {
-<<<<<<< HEAD
-      retval = tokenMgr.decimals().sendAsync().get();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    } catch (ExecutionException e) {
-=======
       retval = tokenMgr.decimals().send();
     } catch (Exception e) {
->>>>>>> dev
       e.printStackTrace();
     }
     return retval;
   }
 
-<<<<<<< HEAD
-  public EthBlockNumber getBlockNumber()
-      throws ExecutionException, InterruptedException {
-    return web3j.ethBlockNumber().sendAsync().get();
-=======
   public EthBlockNumber getBlockNumber() throws IOException {
     return web3j.ethBlockNumber().send();
->>>>>>> dev
   }
 
   public NewWalletDto createAccount()
@@ -195,11 +160,7 @@ public class BlockchainConnector {
 
     String fileName = saveWalletFile(walletFile);
 
-<<<<<<< HEAD
-    return new NewWalletDto(walletFile.getAddress(),fileName,password);
-=======
     return new NewWalletDto(walletFile.getAddress(), fileName, password);
->>>>>>> dev
   }
 
   private String getWalletFileName(WalletFile walletFile) {
@@ -214,21 +175,13 @@ public class BlockchainConnector {
     String fileName = getWalletFileName(walletFile);
     File file = new File(ResourceUtils.getFile(keyPath), fileName);
     ObjectMapper objectMapper = new ObjectMapper();
-<<<<<<< HEAD
-    objectMapper.writeValue(file,walletFile);
-=======
     objectMapper.writeValue(file, walletFile);
->>>>>>> dev
 
     return fileName;
   }
 
   private String createPassword() {
-<<<<<<< HEAD
-    return UUID.randomUUID().toString().replaceAll("-","");
-=======
     return UUID.randomUUID().toString().replaceAll("-", "");
->>>>>>> dev
   }
 
   private void subscribe() {

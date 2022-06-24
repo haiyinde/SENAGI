@@ -1,32 +1,11 @@
-<<<<<<< HEAD
-
-import React from 'react';
-import ReceiptImage from './ReceiptImage';
-import CampaignCard from './CampaignCard';
-
-=======
 import { useState, useEffect } from 'react';
 import ReceiptImage from './ReceiptImage';
 import CampaignCard from './CampaignCard';
 import PaymentAPI from '../../../api/paymentAPI';
->>>>>>> dev
 
 import styled from '@emotion/styled';
 import { Grid } from '@mui/material';
 
-<<<<<<< HEAD
-function UsageHistory() {
-  return (
-    <div>
-      <LeyoutContainer>
-        <Grid container justifyContent={'space-evenly'}>
-          <ReceiptImage />
-            <Grid item xs={6} lg={2}>
-                <CardPosition>
-                  <CampaignCard />
-                </CardPosition>
-            </Grid>
-=======
 function UsageHistory(props) {
   const { targetDonation, lastModifiedDate, endDate, shelterName, balance, pageId, dday } = props;
 
@@ -68,7 +47,6 @@ function UsageHistory(props) {
               />
             </CardPosition>
           </Grid>
->>>>>>> dev
         </Grid>
       </LeyoutContainer>
     </div>
@@ -80,18 +58,6 @@ export default UsageHistory;
 const CardPosition = styled.div`
   position: relative;
   margin-top: 35px;
-<<<<<<< HEAD
-  @media screen and ( max-width: 1200px ) {
-    display: None;
-  }
-`
-
-const LeyoutContainer = styled.div`
-  height: 700px;
-`
-
-
-=======
   @media screen and (max-width: 1200px) {
     display: None;
   }
@@ -113,4 +79,3 @@ const NoUsage = styled.p`
   font-family: 'GM';
   font-size: 32px;
 `;
->>>>>>> dev
