@@ -14,10 +14,7 @@ public interface CampaignContractService {
 
   AmountDto withdrawal(String contractAccount, Wallet to, Long amount);
 
-<<<<<<< HEAD
-=======
   boolean isEnd(String contractAccount);
 
->>>>>>> dev
   ContractCloseResponseDto contractClose(String fromContractAccount, String toContractAccount);
 }

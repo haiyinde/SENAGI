@@ -35,10 +35,7 @@ pipeline {
                     -p 8080:8080 \
                     -v /var/backend/keystore:/keystore \
                     -v /var/backend/imgs:/imgs \
-<<<<<<< HEAD
-=======
                     -v /var/backend/logs:/logs \
->>>>>>> dev
                     backend:latest'
                 
                 sh 'docker run -d \

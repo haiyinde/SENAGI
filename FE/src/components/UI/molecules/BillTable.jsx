@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
-
-function createData(name, amount) {
-  return { name, amount};
-}
-
-// api
-const rows = [
-  createData('oo병원', 1300000),
-  createData('xx병원', 500000),
-  createData('aa병원', 800000),
-];
-
-function BillTable() {
-=======
 import { useEffect, useState } from 'react';
 import {
   Table,
@@ -49,7 +33,6 @@ function BillTable({ subResults, totalAmount = 0 }) {
     // console.log('rows', rows);
   }, [subResults]);
 
->>>>>>> dev
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
@@ -61,35 +44,21 @@ function BillTable({ subResults, totalAmount = 0 }) {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-<<<<<<< HEAD
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-=======
             <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
->>>>>>> dev
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
               <TableCell align="center">{row.amount}</TableCell>
             </TableRow>
           ))}
-<<<<<<< HEAD
-=======
           <TableRow>
             <TableCell>합계:</TableCell>
             <TableCell align="right">{totalAmount}원</TableCell>
           </TableRow>
->>>>>>> dev
         </TableBody>
       </Table>
     </TableContainer>
   );
 }
 
-<<<<<<< HEAD
 export default BillTable;
-=======
-export default BillTable;
->>>>>>> dev
